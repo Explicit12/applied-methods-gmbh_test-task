@@ -5,8 +5,8 @@ export function getScriptExecutionPlan(scripts: VulnerabilityScript[]): Executio
 
   const scriptIds = new Set(scripts.map(({ scriptId }) => scriptId));
 
-  const nodeInDegree = new Map();
-  const nodeAdjacency = new Map();
+  const nodeInDegree: Map<number, number> = new Map();
+  const nodeAdjacency: Map<number, number[]> = new Map();
 
   // Initialize in-degree, adjacency list, add warnings for missing dependencies
   for (const { scriptId, dependencies } of scripts) {
@@ -21,7 +21,7 @@ export function getScriptExecutionPlan(scripts: VulnerabilityScript[]): Executio
         nodeAdjacency.set(dep, []);
       }
 
-      nodeAdjacency.get(dep).push(scriptId);
+      nodeAdjacency.get(dep)!.push(scriptId);
     }
   }
 
