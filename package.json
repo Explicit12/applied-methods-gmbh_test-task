@@ -8,7 +8,8 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "lint:fix": "npx eslint --fix --cache",
-    "lint": "npx eslint"
+    "lint": "npx eslint",
+    "prepare": "husky"
   },
   "dependencies": {
     "vue": "^3.5.18"
@@ -23,6 +24,7 @@
     "eslint-plugin-unicorn": "^60.0.0",
     "eslint-plugin-vue": "^10.4.0",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
     "jiti": "^2.5.1",
     "prettier": "3.6.2",
     "typescript": "~5.8.3",
