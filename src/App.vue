@@ -29,7 +29,7 @@
   function addScript() {
     const newScript = {
       scriptId: Number(scriptInput.value.scriptId),
-      dependencies: scriptInput.value.dependencies.split(",").map((id) => +id.replaceAll(/[^0-9]/, "")),
+      dependencies: scriptInput.value.dependencies.split(",").map((id) => +id.replaceAll(/[^0-9]/g, "")),
     };
 
     validateScript(newScript);
