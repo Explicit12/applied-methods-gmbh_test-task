@@ -29,7 +29,10 @@
   function addScript() {
     const newScript = {
       scriptId: Number(scriptInput.value.scriptId),
-      dependencies: scriptInput.value.dependencies.split(",").map((id) => +id.replaceAll(/[^0-9]/g, "")),
+      dependencies: scriptInput.value.dependencies
+        .split(",")
+        .map((id) => +id.replaceAll(/[^0-9]/g, ""))
+        .filter((id) => !!id),
     };
 
     validateScript(newScript);
@@ -37,6 +40,11 @@
     if (error.value) return;
 
     scripts.value.push(newScript);
+
+    scriptInput.value = {
+      scriptId: undefined,
+      dependencies: "",
+    };
   }
 
   function resetError() {
