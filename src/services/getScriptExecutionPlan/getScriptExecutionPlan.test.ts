@@ -2,6 +2,8 @@ import { describe, expect, test } from "vitest";
 
 import { getScriptExecutionPlan } from "./getScriptExecutionPlan";
 
+import type { VulnerabilityScript } from "./types";
+
 const independentNodes = [
   { scriptId: 1, dependencies: [] },
   { scriptId: 2, dependencies: [] },
@@ -22,7 +24,7 @@ const complexGraph = [
   { scriptId: 3, dependencies: [5, 4] },
 ];
 
-const emptyInput = [];
+const emptyInput: VulnerabilityScript[] = [];
 
 const singleNode = [{ scriptId: 1, dependencies: [] }];
 
