@@ -82,7 +82,7 @@
               @input="resetError"
               v-model="scriptInput.dependencies"
               inputmode="numeric"
-              placeholder="Despondencies separated by comma"
+              placeholder="Dependencies separated by comma"
             />
             <Button :disabled="!scriptInput.scriptId" @click="addScript">Add</Button>
           </div>
