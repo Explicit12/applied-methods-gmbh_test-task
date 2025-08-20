@@ -18,6 +18,13 @@ export default defineConfig([
       "@stylistic/quotes": ["warn", "double"],
       "@stylistic/max-len": ["warn", { code: 120 }],
       "unicorn/filename-case": ["error", { cases: { pascalCase: true, camelCase: true } }],
+      "unicorn/prevent-abbreviations": [
+        "error",
+        {
+          checkFilenames: false,
+          ignore: ["[Pp]rops", /^ignore/i],
+        },
+      ],
     },
   },
   {
@@ -44,6 +51,12 @@ export default defineConfig([
       "vue/script-indent": ["warn", 2, { baseIndent: 1 }],
     },
     languageOptions: { parserOptions: { parser: tseslint.parser } },
+  },
+  {
+    files: ["./src/components/ui/**/*.vue"],
+    rules: {
+      "vue/multi-word-component-names": "off",
+    },
   },
 
   globalIgnores([".github/*", ".vscode/*", "node_modules/*"]),
